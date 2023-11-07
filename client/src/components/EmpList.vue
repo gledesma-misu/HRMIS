@@ -12,11 +12,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { CustomerService } from '@/services/Api';
 
-onMounted(() => {
-    CustomerService.getCustomersMedium().then((data) => (customers.value = data));
-});
+
 
 const customers = ref();
 

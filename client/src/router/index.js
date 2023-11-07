@@ -10,7 +10,6 @@ import AttendanceView from '../views/AttendanceView.vue'
 import LibrariesView from '../views/LibrariesView.vue'
 import AccessControlView from '../views/AccessControlView.vue'
 
-import Ping from '../views/Ping.vue'
 
 // Recruitment Router
 import PublishingView from '../views/RecPublishment/RecPublishingView.vue'
@@ -28,10 +27,7 @@ const router = createRouter({
       path: '/hrmis/login', component: () => import('@/views/UserLoginView.vue')
     },
     {
-      path: '/hrmis/registration', component: () => import('@/views/UserRegistrationView.vue')
-    },
-    {
-      path: '/hrmis/ping', name: 'ping', component: Ping,
+      path: '/hrmis/registration', component: () => import('@/components/Registration.vue')
     },
     {
       path: '/hrmis/dashboard',
