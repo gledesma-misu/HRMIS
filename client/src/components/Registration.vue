@@ -34,6 +34,7 @@
           required
         />
       </div>
+      <div class="error" v-html="error"></div>
       <button type="submit" class="btn btn-primary" @click="register">
         Register
       </button>
@@ -49,18 +50,28 @@ export default {
       username: "",
       password: "",
       email: "",
+      error: null,
     };
   },
   methods: {
     async register() {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password,
-      });
-      console.log(response.data);
+      try {
+        await AuthenticationService.register({
+          email: this.email,
+          password: this.password,
+        });
+      } catch (error) {
+        this.error = error.response.data.error;
+      }
+
+      // console.log(response.data);
     },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.error {
+  color: red;
+}
+</style>
